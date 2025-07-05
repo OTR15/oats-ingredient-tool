@@ -29,94 +29,88 @@ all_ingredients = list(ingredient_to_flavors.keys())
 def index():
     result = None
     suggestions = []
-    query = ""
+    flavor_query = None
+    ingredient_query = None
 
     if request.method == 'POST':
-        query = request.form['query'].strip()
-        query_lower = query.lower()
-
         ingredient_aliases = load_aliases()
         variant_to_normal = get_variant_map(ingredient_aliases)
         all_ingredient_variants = list(variant_to_normal.keys()) + [i.lower() for i in all_ingredients]
 
-        # Try exact alias match first
-        normalized_query = variant_to_normal.get(query_lower)
+        # If user submitted the flavor form
+        if 'flavor_submit' in request.form:
+            query = request.form['flavor_query'].strip()
+            flavor_query = query
+            query_lower = query.lower()
 
-        # If not exact, try partial match to any alias variant
-        if not normalized_query:
-            for variant, normal in variant_to_normal.items():
-                if query_lower in variant:
-                    normalized_query = normal
-                    break
-
-        # Then, try fuzzy match to aliases
-        if not normalized_query:
-            close_match = difflib.get_close_matches(query_lower, variant_to_normal.keys(), n=1, cutoff=0.6)
-            if close_match:
-                normalized_query = variant_to_normal[close_match[0]]
-
-        # If we found a normalized query, show all variants together
-        if normalized_query:
-            all_variants = ingredient_aliases.get(normalized_query, [])
-            flavors = set()
-            for variant in all_variants:
-                flavors.update(ingredient_to_flavors.get(variant, []))
-            if len(flavors) == len(all_flavors):
-                result = ("ingredient_all", normalized_query, sorted(flavors))
-            elif len(flavors) == 0:
-                result = ("ingredient_none", normalized_query, [])
-            else:
-                result = ("ingredient", normalized_query, sorted(flavors))
-        elif query in flavor_to_ingredients:
-            result = ("flavor", query, flavor_to_ingredients[query])
-        elif query in ingredient_to_flavors:
-            flavors = ingredient_to_flavors[query]
-            if len(flavors) == len(all_flavors):
-                result = ("ingredient_all", query, flavors)
-            elif len(flavors) == 0:
-                result = ("ingredient_none", query, flavors)
-            else:
-                result = ("ingredient", query, flavors)
-        else:
             matched_flavors = [f for f in all_flavors if query_lower in f.lower()]
-            matched_ingredients = [i for i in all_ingredients if query_lower in i.lower()]
-            suggestions = matched_flavors + matched_ingredients
-
-            if not suggestions:
+            if query in flavor_to_ingredients:
+                result = ("flavor", query, flavor_to_ingredients[query])
+            elif len(matched_flavors) == 1:
+                match = matched_flavors[0]
+                result = ("flavor", match, flavor_to_ingredients[match])
+            elif len(matched_flavors) > 1:
+                suggestions = matched_flavors
+            else:
                 close_flavors = difflib.get_close_matches(query, all_flavors, n=5, cutoff=0.5)
-                close_ingredients = difflib.get_close_matches(query, all_ingredient_variants, n=5, cutoff=0.5)
-                suggestions = close_flavors + close_ingredients
+                suggestions = close_flavors
 
-    return render_template('index.html', result=result, suggestions=suggestions, query=query)
+            return render_template('index.html', result=result, suggestions=suggestions,
+                                   flavor_query=flavor_query, ingredient_query=ingredient_query)
 
-@app.route('/aliases', methods=['GET', 'POST'])
-def aliases_page():
-    aliases = load_aliases()
+        # If user submitted the ingredient form
+        if 'ingredient_submit' in request.form:
+            query = request.form['ingredient_query'].strip()
+            ingredient_query = query
+            query_lower = query.lower()
 
-    if request.method == 'POST':
-        if 'add_new' in request.form:
-            new_name = request.form['new_name'].strip()
-            new_aliases = [a.strip() for a in request.form['new_aliases'].split(',') if a.strip()]
-            if new_name and new_aliases:
-                aliases[new_name] = new_aliases
-        else:
-            total = int(request.form['total'])
-            updated = {}
-            for i in range(total):
-                name = request.form.get(f'name_{i}', '').strip()
-                variants = request.form.get(f'alias_{i}', '').strip()
-                if name and variants:
-                    updated[name] = [v.strip() for v in variants.split(',') if v.strip()]
-            aliases = updated
+            normalized_query = variant_to_normal.get(query_lower)
+            if not normalized_query:
+                for variant, normal in variant_to_normal.items():
+                    if query_lower in variant:
+                        normalized_query = normal
+                        break
+            if not normalized_query:
+                close_match = difflib.get_close_matches(query_lower, variant_to_normal.keys(), n=1, cutoff=0.6)
+                if close_match:
+                    normalized_query = variant_to_normal[close_match[0]]
 
-        with open('data/ingredient_aliases.json', 'w') as f:
-            json.dump(aliases, f, indent=2)
+            if normalized_query:
+                all_variants = ingredient_aliases.get(normalized_query, [])
+                flavors = set()
+                for variant in all_variants:
+                    flavors.update(ingredient_to_flavors.get(variant, []))
+                if len(flavors) == len(all_flavors):
+                    result = ("ingredient_all", normalized_query, sorted(flavors))
+                elif len(flavors) == 0:
+                    result = ("ingredient_none", normalized_query, [])
+                else:
+                    result = ("ingredient", normalized_query, sorted(flavors))
+            elif query in ingredient_to_flavors:
+                flavors = ingredient_to_flavors[query]
+                if len(flavors) == len(all_flavors):
+                    result = ("ingredient_all", query, flavors)
+                elif len(flavors) == 0:
+                    result = ("ingredient_none", query, flavors)
+                else:
+                    result = ("ingredient", query, flavors)
+            else:
+                matched_ingredients = [i for i in all_ingredients if query_lower in i.lower()]
+                if len(matched_ingredients) == 1:
+                    match = matched_ingredients[0]
+                    flavors = ingredient_to_flavors.get(match, [])
+                    result = ("ingredient", match, flavors)
+                elif len(matched_ingredients) > 1:
+                    suggestions = matched_ingredients
+                else:
+                    close_ingredients = difflib.get_close_matches(query, all_ingredient_variants, n=5, cutoff=0.5)
+                    suggestions = close_ingredients
 
-    return render_template('alias_editor.html', aliases=aliases)
+            return render_template('index.html', result=result, suggestions=suggestions,
+                                   flavor_query=flavor_query, ingredient_query=ingredient_query)
 
-import os
+    return render_template('index.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=False, host='0.0.0.0', port=port)
-
