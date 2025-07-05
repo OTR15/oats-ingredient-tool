@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+rom flask import Flask, render_template, request
 import json
 import difflib
 import os
@@ -109,7 +109,14 @@ def index():
             return render_template('index.html', result=result, suggestions=suggestions,
                                    flavor_query=flavor_query, ingredient_query=ingredient_query)
 
-    return render_template('index.html')
+    return render_template('index.html', result=result, suggestions=suggestions,
+                       flavor_query=flavor_query, ingredient_query=ingredient_query)
+
+
+@app.route('/download-aliases')
+def download_aliases():
+    return app.send_static_file('data/ingredient_aliases.json')
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
