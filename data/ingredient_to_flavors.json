@@ -1,1 +1,800 @@
-{"BANANA POWDER": ["Bananas Foster"], "MONKFRUIT": ["Bananas Foster"]}
+{
+  "CERTIFIED GLUTEN FREE WHOLE GRAIN ROLLED OATS": [
+    "Banana Bread",
+    "Bananas Foster",
+    "Birthday Cake",
+    "Blueberry Cobbler",
+    "Boston Cream",
+    "Caramel Apple",
+    "Caramel Cold Brew",
+    "Cherry Pie",
+    "Chocolate Cake",
+    "Chocolate Chip Cookie Dough",
+    "Chocolate Peanut Butter Banana",
+    "Chocolate Satin Pie",
+    "Cinnamon Roll",
+    "Cococolate Covered Banana",
+    "Coconut Cream Pie",
+    "Cookie Butter",
+    "Cookies & Cream",
+    "Dark Chocolate Sea Salt",
+    "Eggnog",
+    "French Toast",
+    "Fruity Cereal",
+    "Gingerbread",
+    "Glazed Blueberry Donut",
+    "Green Apple Cinnamon",
+    "Iced Lemon Loaf",
+    "Mango Custard",
+    "Maple Pancakes",
+    "Matcha Mango",
+    "Mint Chocolate Chip Cookie",
+    "Mixed Berries Cream",
+    "Mocha Dream",
+    "Orange Cream Pop",
+    "PB Cookie Dough Cacao Crunch",
+    "Peach Upside Down Cake",
+    "Peanut Butter & Jelly",
+    "Peppermint Mocha",
+    "Pumpkin Pie",
+    "Salted Toffee",
+    "Snickerdoodle",
+    "Space Brownie",
+    "Strawberries Cream",
+    "Strawberry Banana",
+    "Strawberry Rhubarb",
+    "S\u2019mores",
+    "Tiramasu",
+    "White Chocolate Raspberry"
+  ],
+  "FAVA BEAN PROTEIN ISOLATE": [
+    "Banana Bread"
+  ],
+  "PEA PROTEIN ISOLATE": [
+    "Banana Bread",
+    "Blueberry Cobbler",
+    "Caramel Cold Brew",
+    "Carrot Cake",
+    "Chocolate Chip Cookie Dough",
+    "Cinnamon Roll",
+    "Cococolate Covered Banana",
+    "Dark Chocolate Sea Salt",
+    "Iced Lemon Loaf",
+    "Maple Pancakes",
+    "Pumpkin Pie",
+    "Snickerdoodle",
+    "Strawberry Banana",
+    "Strawberry Rhubarb"
+  ],
+  "MAPLE SUGAR": [
+    "Banana Bread",
+    "Birthday Cake",
+    "Blueberry Cobbler",
+    "Boston Cream",
+    "Carrot Cake",
+    "Cherry Pie",
+    "Chocolate Cake",
+    "Chocolate Chip Cookie Dough",
+    "Chocolate Peanut Butter Banana",
+    "Chocolate Satin Pie",
+    "Cinnamon Roll",
+    "Cococolate Covered Banana",
+    "Coconut Cream Pie",
+    "Cookie Butter",
+    "Cookies & Cream",
+    "Dark Chocolate Sea Salt",
+    "Eggnog",
+    "French Toast",
+    "Fruity Cereal",
+    "Gingerbread",
+    "Glazed Blueberry Donut",
+    "Green Apple Cinnamon",
+    "Iced Lemon Loaf",
+    "Mango Custard",
+    "Maple Pancakes",
+    "Matcha Mango",
+    "Mint Chocolate Chip Cookie",
+    "Mixed Berries Cream",
+    "Mocha Dream",
+    "Orange Cream Pop",
+    "PB Cookie Dough Cacao Crunch",
+    "Peach Upside Down Cake",
+    "Peanut Butter & Jelly",
+    "Peppermint Mocha",
+    "Pumpkin Pie",
+    "Salted Toffee",
+    "Snickerdoodle",
+    "Space Brownie",
+    "Strawberries Cream",
+    "Strawberry Banana",
+    "Strawberry Rhubarb",
+    "S\u2019mores",
+    "Tiramasu",
+    "White Chocolate Raspberry"
+  ],
+  "POWDERED BANANAS": [
+    "Banana Bread"
+  ],
+  "POWDERED DATES": [
+    "Banana Bread",
+    "Blueberry Cobbler",
+    "PB Cookie Dough Cacao Crunch"
+  ],
+  "DICED BANANAS": [
+    "Banana Bread",
+    "Chocolate Peanut Butter Banana"
+  ],
+  "CHIA SEEDS": [
+    "Banana Bread",
+    "Bananas Foster",
+    "Birthday Cake",
+    "Blueberry Cobbler",
+    "Boston Cream",
+    "Caramel Apple",
+    "Caramel Cold Brew",
+    "Carrot Cake",
+    "Cherry Pie",
+    "Chocolate Cake",
+    "Chocolate Chip Cookie Dough",
+    "Chocolate Peanut Butter Banana",
+    "Chocolate Satin Pie",
+    "Cinnamon Roll",
+    "Cococolate Covered Banana",
+    "Coconut Cream Pie",
+    "Cookie Butter",
+    "Cookies & Cream",
+    "Dark Chocolate Sea Salt",
+    "Eggnog",
+    "French Toast",
+    "Fruity Cereal",
+    "Gingerbread",
+    "Glazed Blueberry Donut",
+    "Green Apple Cinnamon",
+    "Iced Lemon Loaf",
+    "Mango Custard",
+    "Maple Pancakes",
+    "Matcha Mango",
+    "Mint Chocolate Chip Cookie",
+    "Mixed Berries Cream",
+    "Mocha Dream",
+    "Orange Cream Pop",
+    "PB Cookie Dough Cacao Crunch",
+    "Peach Upside Down Cake",
+    "Peanut Butter & Jelly",
+    "Pumpkin Pie",
+    "Salted Toffee",
+    "Space Brownie",
+    "Strawberries Cream",
+    "Strawberry Banana",
+    "Strawberry Rhubarb",
+    "S\u2019mores",
+    "Tiramasu",
+    "White Chocolate Raspberry"
+  ],
+  "FLAXSEED": [
+    "Banana Bread",
+    "Bananas Foster",
+    "Blueberry Cobbler",
+    "Boston Cream",
+    "Caramel Apple",
+    "Caramel Cold Brew",
+    "Carrot Cake",
+    "Cherry Pie",
+    "Chocolate Cake",
+    "Chocolate Chip Cookie Dough",
+    "Chocolate Peanut Butter Banana",
+    "Chocolate Satin Pie",
+    "Cinnamon Roll",
+    "Cococolate Covered Banana",
+    "Coconut Cream Pie",
+    "Cookie Butter",
+    "Cookies & Cream",
+    "Dark Chocolate Sea Salt",
+    "Eggnog",
+    "French Toast",
+    "Fruity Cereal",
+    "Gingerbread",
+    "Glazed Blueberry Donut",
+    "Green Apple Cinnamon",
+    "Iced Lemon Loaf",
+    "Mango Custard",
+    "Maple Pancakes",
+    "Matcha Mango",
+    "Mint Chocolate Chip Cookie",
+    "Mixed Berries Cream",
+    "Mocha Dream",
+    "Orange Cream Pop",
+    "PB Cookie Dough Cacao Crunch",
+    "Peach Upside Down Cake",
+    "Peanut Butter & Jelly",
+    "Peppermint Mocha",
+    "Pumpkin Pie",
+    "Salted Toffee",
+    "Snickerdoodle",
+    "Space Brownie",
+    "Strawberries Cream",
+    "Strawberry Banana",
+    "Strawberry Rhubarb",
+    "S\u2019mores",
+    "Tiramasu",
+    "White Chocolate Raspberry"
+  ],
+  "HEMP SEEDS": [
+    "Banana Bread"
+  ],
+  "NATURAL FLAVORS": [
+    "Banana Bread",
+    "Bananas Foster",
+    "Birthday Cake",
+    "Blueberry Cobbler",
+    "Boston Cream",
+    "Caramel Apple",
+    "Caramel Cold Brew",
+    "Carrot Cake",
+    "Chocolate Cake",
+    "Chocolate Chip Cookie Dough",
+    "Chocolate Satin Pie",
+    "Cinnamon Roll",
+    "Cococolate Covered Banana",
+    "Coconut Cream Pie",
+    "Cookie Butter",
+    "Cookies & Cream",
+    "Dark Chocolate Sea Salt",
+    "Eggnog",
+    "French Toast",
+    "Fruity Cereal",
+    "Gingerbread",
+    "Glazed Blueberry Donut",
+    "Iced Lemon Loaf",
+    "Mango Custard",
+    "Matcha Mango",
+    "Mint Chocolate Chip Cookie",
+    "Mixed Berries Cream",
+    "Mocha Dream",
+    "Orange Cream Pop",
+    "PB Cookie Dough Cacao Crunch",
+    "Peach Upside Down Cake",
+    "Peanut Butter & Jelly",
+    "Peppermint Mocha",
+    "Pumpkin Pie",
+    "Salted Toffee",
+    "Snickerdoodle",
+    "Space Brownie",
+    "Strawberries Cream",
+    "Strawberry Banana",
+    "Strawberry Rhubarb",
+    "S\u2019mores",
+    "Tiramasu",
+    "White Chocolate Raspberry"
+  ],
+  "MOLASSES POWDER": [
+    "Banana Bread",
+    "Chocolate Chip Cookie Dough",
+    "Gingerbread",
+    "Maple Pancakes"
+  ],
+  "HIMALAYAN PINK SALT": [
+    "Banana Bread",
+    "Bananas Foster",
+    "Birthday Cake",
+    "Blueberry Cobbler",
+    "Boston Cream",
+    "Caramel Apple",
+    "Caramel Cold Brew",
+    "Carrot Cake",
+    "Cherry Pie",
+    "Chocolate Cake",
+    "Chocolate Peanut Butter Banana",
+    "Chocolate Satin Pie",
+    "Cinnamon Roll",
+    "Cococolate Covered Banana",
+    "Coconut Cream Pie",
+    "Cookies & Cream",
+    "Eggnog",
+    "French Toast",
+    "Fruity Cereal",
+    "Gingerbread",
+    "Glazed Blueberry Donut",
+    "Green Apple Cinnamon",
+    "Iced Lemon Loaf",
+    "Mango Custard",
+    "Maple Pancakes",
+    "Matcha Mango",
+    "Mint Chocolate Chip Cookie",
+    "Mixed Berries Cream",
+    "Mocha Dream",
+    "Orange Cream Pop",
+    "PB Cookie Dough Cacao Crunch",
+    "Peach Upside Down Cake",
+    "Peanut Butter & Jelly",
+    "Pumpkin Pie",
+    "Salted Toffee",
+    "Snickerdoodle",
+    "Space Brownie",
+    "Strawberries Cream",
+    "Strawberry Banana",
+    "Strawberry Rhubarb",
+    "S\u2019mores",
+    "Tiramasu",
+    "White Chocolate Raspberry"
+  ],
+  "MONK FRUIT": [
+    "Banana Bread",
+    "Bananas Foster",
+    "Birthday Cake",
+    "Blueberry Cobbler",
+    "Boston Cream",
+    "Caramel Apple",
+    "Caramel Cold Brew",
+    "Carrot Cake",
+    "Cherry Pie",
+    "Chocolate Chip Cookie Dough",
+    "Chocolate Peanut Butter Banana",
+    "Chocolate Satin Pie",
+    "Cinnamon Roll",
+    "Cococolate Covered Banana",
+    "Coconut Cream Pie",
+    "Cookie Butter",
+    "Cookies & Cream",
+    "Dark Chocolate Sea Salt",
+    "Eggnog",
+    "French Toast",
+    "Fruity Cereal",
+    "Gingerbread",
+    "Glazed Blueberry Donut",
+    "Green Apple Cinnamon",
+    "Iced Lemon Loaf",
+    "Mango Custard",
+    "Maple Pancakes",
+    "Matcha Mango",
+    "Mint Chocolate Chip Cookie",
+    "Mixed Berries Cream",
+    "Mocha Dream",
+    "Orange Cream Pop",
+    "PB Cookie Dough Cacao Crunch",
+    "Peach Upside Down Cake",
+    "Peanut Butter & Jelly",
+    "Peppermint Mocha",
+    "Pumpkin Pie",
+    "Salted Toffee",
+    "Snickerdoodle",
+    "Space Brownie",
+    "Strawberries Cream",
+    "Strawberry Banana",
+    "Strawberry Rhubarb",
+    "S\u2019mores",
+    "Tiramasu",
+    "White Chocolate Raspberry"
+  ],
+  "PROTEIN BLEND (WHEY PROTEIN CONCENTRATE": [
+    "Bananas Foster",
+    "Birthday Cake",
+    "Boston Cream",
+    "Cherry Pie",
+    "Chocolate Cake",
+    "Chocolate Peanut Butter Banana",
+    "Chocolate Satin Pie",
+    "Coconut Cream Pie",
+    "Cookies & Cream",
+    "Eggnog",
+    "French Toast",
+    "Fruity Cereal",
+    "Gingerbread",
+    "Glazed Blueberry Donut",
+    "Green Apple Cinnamon",
+    "Mango Custard",
+    "Matcha Mango",
+    "Mint Chocolate Chip Cookie",
+    "Mocha Dream",
+    "Orange Cream Pop",
+    "Peach Upside Down Cake",
+    "Strawberries Cream",
+    "Tiramasu",
+    "White Chocolate Raspberry"
+  ],
+  "MILK PROTEIN CONCENTRATE)": [
+    "Bananas Foster",
+    "Birthday Cake",
+    "Boston Cream",
+    "Cherry Pie",
+    "Chocolate Cake",
+    "Chocolate Peanut Butter Banana",
+    "Chocolate Satin Pie",
+    "Coconut Cream Pie",
+    "Cookies & Cream",
+    "Fruity Cereal",
+    "Gingerbread",
+    "Glazed Blueberry Donut",
+    "Green Apple Cinnamon",
+    "Mango Custard",
+    "Matcha Mango",
+    "Mint Chocolate Chip Cookie",
+    "Mocha Dream",
+    "Orange Cream Pop",
+    "Peach Upside Down Cake",
+    "Strawberries Cream",
+    "Tiramasu",
+    "White Chocolate Raspberry"
+  ],
+  "DATE POWDER": [
+    "Bananas Foster",
+    "Birthday Cake",
+    "Boston Cream",
+    "Caramel Apple",
+    "Caramel Cold Brew",
+    "Carrot Cake",
+    "Chocolate Chip Cookie Dough",
+    "Chocolate Peanut Butter Banana",
+    "Cinnamon Roll",
+    "Cococolate Covered Banana",
+    "Coconut Cream Pie",
+    "Cookies & Cream",
+    "Dark Chocolate Sea Salt",
+    "Eggnog",
+    "French Toast",
+    "Fruity Cereal",
+    "Green Apple Cinnamon",
+    "Iced Lemon Loaf",
+    "Maple Pancakes",
+    "Mint Chocolate Chip Cookie",
+    "Mixed Berries Cream",
+    "Mocha Dream",
+    "Orange Cream Pop",
+    "Peach Upside Down Cake",
+    "Peanut Butter & Jelly",
+    "Peppermint Mocha",
+    "Pumpkin Pie",
+    "Salted Toffee",
+    "Snickerdoodle",
+    "Space Brownie",
+    "Strawberries Cream",
+    "Strawberry Rhubarb",
+    "Tiramasu",
+    "White Chocolate Raspberry"
+  ],
+  "CARAMELIZED SUGAR": [
+    "Bananas Foster",
+    "Caramel Apple",
+    "Caramel Cold Brew",
+    "Cookie Butter"
+  ],
+  "BANANA (DICED POWDERED)": [
+    "Bananas Foster"
+  ],
+  "VANILLA POWDER": [
+    "Bananas Foster",
+    "Boston Cream",
+    "Caramel Cold Brew",
+    "Chocolate Peanut Butter Banana",
+    "Chocolate Satin Pie",
+    "Eggnog",
+    "Fruity Cereal",
+    "Glazed Blueberry Donut",
+    "Mango Custard",
+    "Mixed Berries Cream",
+    "Peach Upside Down Cake",
+    "Space Brownie",
+    "Tiramasu"
+  ],
+  "HEMP HEARTS": [
+    "Birthday Cake",
+    "Blueberry Cobbler",
+    "Caramel Cold Brew",
+    "Cinnamon Roll",
+    "Coconut Cream Pie",
+    "Maple Pancakes",
+    "Mint Chocolate Chip Cookie",
+    "PB Cookie Dough Cacao Crunch",
+    "Snickerdoodle",
+    "Strawberry Banana"
+  ],
+  "BLUEBERRIES (POWDER": [
+    "Blueberry Cobbler"
+  ],
+  "WHOLE)": [
+    "Blueberry Cobbler"
+  ],
+  "COCOA POWDER (PROCESSED WITH ALKALI)": [
+    "Boston Cream",
+    "Chocolate Satin Pie",
+    "Dark Chocolate Sea Salt",
+    "Mint Chocolate Chip Cookie",
+    "Peppermint Mocha",
+    "Space Brownie",
+    "S\u2019mores",
+    "Tiramasu"
+  ],
+  "WHEY PROTEIN CONCENTRATE": [
+    "Caramel Apple",
+    "Cookie Butter",
+    "Mixed Berries Cream",
+    "Peanut Butter & Jelly",
+    "Peppermint Mocha",
+    "Salted Toffee",
+    "Space Brownie",
+    "S\u2019mores"
+  ],
+  "APPLES (DICED": [
+    "Caramel Apple",
+    "Green Apple Cinnamon"
+  ],
+  "POWDER)": [
+    "Caramel Apple",
+    "Green Apple Cinnamon",
+    "Mango Custard",
+    "White Chocolate Raspberry"
+  ],
+  "CITRIC ACID": [
+    "Caramel Apple",
+    "Fruity Cereal",
+    "Iced Lemon Loaf",
+    "Mixed Berries Cream",
+    "Strawberry Rhubarb",
+    "White Chocolate Raspberry"
+  ],
+  "COFFEE": [
+    "Caramel Cold Brew",
+    "Mocha Dream",
+    "Peppermint Mocha",
+    "Tiramasu"
+  ],
+  "CERTIFIED GLUTEN FREE WHOLE-GRAIN ROLLED OATS": [
+    "Carrot Cake"
+  ],
+  "CARROT (PIECES)": [
+    "Carrot Cake"
+  ],
+  "CINNAMON": [
+    "Carrot Cake",
+    "Cookie Butter",
+    "Gingerbread",
+    "Green Apple Cinnamon",
+    "Pumpkin Pie",
+    "Snickerdoodle",
+    "Strawberry Rhubarb"
+  ],
+  "NATURAL FLAVOR": [
+    "Cherry Pie",
+    "Green Apple Cinnamon",
+    "Maple Pancakes"
+  ],
+  "CHERRY POWDER": [
+    "Cherry Pie"
+  ],
+  "MALIC ACID": [
+    "Cherry Pie"
+  ],
+  "BREAKFAST COCOA POWDER (PROCESSED WITH ALKALI)": [
+    "Chocolate Cake",
+    "Chocolate Peanut Butter Banana",
+    "Cococolate Covered Banana",
+    "Mocha Dream"
+  ],
+  "MONKFRUIT": [
+    "Chocolate Cake"
+  ],
+  "MINI CHOCOLATE CHIPS [CHOCOLATE LIQUOR, CANE SUGAR, COCOA BUTTER]": [
+    "Chocolate Chip Cookie Dough",
+    "Chocolate Satin Pie",
+    "Cococolate Covered Banana"
+  ],
+  "HIMALAYAN PINK _ SALT": [
+    "Chocolate Chip Cookie Dough",
+    "Cookie Butter",
+    "Peppermint Mocha"
+  ],
+  "PEANUT FLOUR": [
+    "Chocolate Peanut Butter Banana",
+    "PB Cookie Dough Cacao Crunch",
+    "Peanut Butter & Jelly"
+  ],
+  "CHOCOLATE COOKIE CRUMB [TAPIOCA STARCH": [
+    "Chocolate Satin Pie"
+  ],
+  "RICE FLOUR": [
+    "Chocolate Satin Pie",
+    "Cookies & Cream"
+  ],
+  "SUGAR": [
+    "Chocolate Satin Pie",
+    "Cookies & Cream"
+  ],
+  "COCOA (PROCESSED WITH ALKALI)": [
+    "Chocolate Satin Pie"
+  ],
+  "SUNFLOWER OIL": [
+    "Chocolate Satin Pie",
+    "Cookies & Cream"
+  ],
+  "SALT": [
+    "Chocolate Satin Pie"
+  ],
+  "VANILLA EXTRACT": [
+    "Chocolate Satin Pie",
+    "Cookies & Cream"
+  ],
+  "SODIUM BICARBONATE]": [
+    "Chocolate Satin Pie"
+  ],
+  "SWEET CREAM POWDER": [
+    "Chocolate Satin Pie",
+    "Mixed Berries Cream",
+    "Tiramasu"
+  ],
+  "GROUND CINNAMON": [
+    "Cinnamon Roll"
+  ],
+  "BANANA POWDER": [
+    "Cococolate Covered Banana"
+  ],
+  "COCONUT OIL POWDER": [
+    "Coconut Cream Pie",
+    "Cookie Butter"
+  ],
+  "ALLSPICE": [
+    "Cookie Butter",
+    "Gingerbread"
+  ],
+  "NUTMEG": [
+    "Cookie Butter",
+    "Eggnog",
+    "Pumpkin Pie"
+  ],
+  "GINGER": [
+    "Cookie Butter",
+    "Gingerbread",
+    "Pumpkin Pie"
+  ],
+  "CARDAMOM": [
+    "Cookie Butter"
+  ],
+  "CHOCOLATE COOKIE CRUMBS (TAPIOCA STARCH": [
+    "Cookies & Cream"
+  ],
+  "COCOA [PROCESSED WITH ALKALI]": [
+    "Cookies & Cream"
+  ],
+  "SODIUM BICARBONATE)": [
+    "Cookies & Cream"
+  ],
+  "MINI CHOCOLATE CHIPS CHOCOLATE LIQUOR": [
+    "Dark Chocolate Sea Salt"
+  ],
+  "CANE SUGAR": [
+    "Dark Chocolate Sea Salt",
+    "Mint Chocolate Chip Cookie"
+  ],
+  "COCOA BUTTER]": [
+    "Dark Chocolate Sea Salt",
+    "Mint Chocolate Chip Cookie"
+  ],
+  "SEA SALT": [
+    "Dark Chocolate Sea Salt"
+  ],
+  "PEA PROTEIN ISOLATE)": [
+    "Eggnog",
+    "French Toast"
+  ],
+  "SPICE BLEND\u2019 (NUTMEG": [
+    "French Toast"
+  ],
+  "CINNAMON)": [
+    "French Toast"
+  ],
+  "FRUIT BLEND (TART CHERRY POWDER": [
+    "Fruity Cereal"
+  ],
+  "DICED STRAWBERRIES)": [
+    "Fruity Cereal"
+  ],
+  "BLUEBERRY (PIECES)": [
+    "Glazed Blueberry Donut"
+  ],
+  "MANGOS (DICED": [
+    "Mango Custard"
+  ],
+  "DICED MANGOS": [
+    "Matcha Mango"
+  ],
+  "MATCHA POWDER": [
+    "Matcha Mango"
+  ],
+  "MINI CHOCOLATE CHIPS [CHOCOLATE LIQUOR": [
+    "Mint Chocolate Chip Cookie"
+  ],
+  "OAT FLOUR": [
+    "Mint Chocolate Chip Cookie"
+  ],
+  "MINT POWDER": [
+    "Mint Chocolate Chip Cookie"
+  ],
+  "POWDERED RASPBERRIES": [
+    "Mixed Berries Cream"
+  ],
+  "POWDERED STRAWBERRIES": [
+    "Mixed Berries Cream"
+  ],
+  "WHOLE BLUEBERRIES": [
+    "Mixed Berries Cream"
+  ],
+  "CACAO NIBS": [
+    "Mocha Dream",
+    "PB Cookie Dough Cacao Crunch"
+  ],
+  "ORANGE JUICE POWDER": [
+    "Orange Cream Pop"
+  ],
+  "PROTEIN BLEND (PEA PROTEIN ISOLATE": [
+    "PB Cookie Dough Cacao Crunch"
+  ],
+  "FAVA BEAN PROTEIN ISOLATE)": [
+    "PB Cookie Dough Cacao Crunch"
+  ],
+  "PEACHES (POWDER": [
+    "Peach Upside Down Cake"
+  ],
+  "DICED)": [
+    "Peach Upside Down Cake",
+    "Strawberry Banana"
+  ],
+  "STRAWBERRY POWDER": [
+    "Peanut Butter & Jelly",
+    "Strawberry Rhubarb"
+  ],
+  "CHIA_ SEEDS": [
+    "Peppermint Mocha"
+  ],
+  "PEPPERMINT POWDER": [
+    "Peppermint Mocha"
+  ],
+  "PUMPKIN POWDER": [
+    "Pumpkin Pie"
+  ],
+  "COCOA BUTTER": [
+    "Space Brownie",
+    "Tiramasu",
+    "White Chocolate Raspberry"
+  ],
+  "STRAWBERRIES (POWDER DICED)": [
+    "Strawberries Cream"
+  ],
+  "BANANAS (POWDER": [
+    "Strawberry Banana"
+  ],
+  "STRAWBERRIES (POWDER": [
+    "Strawberry Banana"
+  ],
+  "_ DICED)": [
+    "Strawberry Banana"
+  ],
+  "LEMON JUICE POWDER": [
+    "Strawberry Banana"
+  ],
+  "RHUBARB POWDER": [
+    "Strawberry Rhubarb"
+  ],
+  "MARSHMALLOW BITS [SUGAR": [
+    "S\u2019mores"
+  ],
+  "|GLUCOSE-FRUCTOSE SYRUP": [
+    "S\u2019mores"
+  ],
+  "CORN STARCH": [
+    "S\u2019mores"
+  ],
+  "DEXTROSE": [
+    "S\u2019mores"
+  ],
+  "CARRAGEENAN": [
+    "S\u2019mores"
+  ],
+  "HYDROLYZED RICE PROTEIN": [
+    "S\u2019mores"
+  ],
+  "NATURAL FLAVORING]": [
+    "S\u2019mores"
+  ],
+  "RASPBERRY (PIECES": [
+    "White Chocolate Raspberry"
+  ]
+}
