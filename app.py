@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
-from flask import send_file
->>>>>>> 1b84c5b010f4ffa95d0a86377cddb76ee001c1b3
-from flask import Flask, render_template, request
+
+from flask import Flask, render_template, request, send_file
 import json
 import difflib
 import os
@@ -11,6 +8,7 @@ app = Flask(__name__)
 
 with open('data/flavor_to_ingredients.json') as f:
     flavor_to_ingredients = json.load(f)
+
 with open('data/ingredient_to_flavors.json') as f:
     ingredient_to_flavors = json.load(f)
 
@@ -53,6 +51,7 @@ def index():
                 suggestions = matched_flavors
             else:
                 suggestions = difflib.get_close_matches(query, all_flavors, n=5, cutoff=0.5)
+
         elif 'ingredient_submit' in request.form:
             query = request.form['ingredient_query'].strip()
             ingredient_query = query
@@ -67,6 +66,7 @@ def index():
                 close_match = difflib.get_close_matches(query_lower, variant_to_normal.keys(), n=1, cutoff=0.6)
                 if close_match:
                     normalized_query = variant_to_normal[close_match[0]]
+
             if normalized_query:
                 all_variants = ingredient_aliases.get(normalized_query, [])
                 flavors = set()
@@ -88,9 +88,10 @@ def index():
                 elif len(matched_ingredients) > 1:
                     suggestions = matched_ingredients
                 else:
-<<<<<<< HEAD
                     suggestions = difflib.get_close_matches(query, all_ingredient_variants, n=5, cutoff=0.5)
-    return render_template('index.html', result=result, suggestions=suggestions, flavor_query=flavor_query, ingredient_query=ingredient_query)
+
+    return render_template('index.html', result=result, suggestions=suggestions,
+                           flavor_query=flavor_query, ingredient_query=ingredient_query)
 
 @app.route('/aliases', methods=['GET', 'POST'])
 def aliases_page():
@@ -113,20 +114,10 @@ def aliases_page():
         with open('data/ingredient_aliases.json', 'w') as f:
             json.dump(aliases, f, indent=2)
     return render_template('alias_editor.html', aliases=aliases)
-=======
-                    close_ingredients = difflib.get_close_matches(query, all_ingredient_variants, n=5, cutoff=0.5)
-                    suggestions = close_ingredients
-
-            return render_template('index.html', result=result, suggestions=suggestions,
-                                   flavor_query=flavor_query, ingredient_query=ingredient_query)
-
-    return render_template('index.html')
->>>>>>> 1b84c5b010f4ffa95d0a86377cddb76ee001c1b3
 
 @app.route('/download-aliases')
 def download_aliases():
     return send_file("data/ingredient_aliases.json", as_attachment=True)
-
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
