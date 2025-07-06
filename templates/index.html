@@ -5,9 +5,17 @@
 </head>
 <body>
     <h1>Oat Flavor Ingredient Finder</h1>
+
     <form method="POST">
-        <input type="text" name="query" placeholder="Enter flavor or ingredient" value="{{ query }}" size="40">
-        <input type="submit" value="Search">
+        <h3>Search by Flavor</h3>
+        <input type="text" name="flavor_query" placeholder="Enter a flavor name" value="{{ flavor_query or '' }}" size="40">
+        <input type="submit" name="flavor_submit" value="Search Flavor">
+    </form>
+
+    <form method="POST" style="margin-top: 2em;">
+        <h3>Search by Ingredient</h3>
+        <input type="text" name="ingredient_query" placeholder="Enter an ingredient name" value="{{ ingredient_query or '' }}" size="40">
+        <input type="submit" name="ingredient_submit" value="Search Ingredient">
     </form>
 
     {% if result %}
