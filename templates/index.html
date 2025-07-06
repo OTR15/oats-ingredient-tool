@@ -1,1 +1,55 @@
+<<<<<<< HEAD
 <html><body><h1>Oat Flavor Ingredient Finder</h1></body></html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oat Flavor Ingredient Finder</title>
+</head>
+<body>
+    <h1>Oat Flavor Ingredient Finder</h1>
+
+    <form method="POST">
+        <h3>Search by Flavor</h3>
+        <input type="text" name="flavor_query" placeholder="Enter a flavor name" value="{{ flavor_query or '' }}" size="40">
+        <input type="submit" name="flavor_submit" value="Search Flavor">
+    </form>
+
+    <form method="POST" style="margin-top: 2em;">
+        <h3>Search by Ingredient</h3>
+        <input type="text" name="ingredient_query" placeholder="Enter an ingredient name" value="{{ ingredient_query or '' }}" size="40">
+        <input type="submit" name="ingredient_submit" value="Search Ingredient">
+    </form>
+
+    {% if result %}
+        <h2>Result</h2>
+        {% if result[0] == 'flavor' %}
+            <p><strong>Ingredients in "{{ result[1] }}":</strong></p>
+            <ul>
+            {% for item in result[2] %}
+                <li>{{ item }}</li>
+            {% endfor %}
+            </ul>
+        {% elif result[0] == 'ingredient' %}
+            <p><strong>Flavors with "{{ result[1] }}":</strong></p>
+            <ul>
+            {% for item in result[2] %}
+                <li>{{ item }}</li>
+            {% endfor %}
+            </ul>
+        {% elif result[0] == 'ingredient_all' %}
+            <p><strong>"{{ result[1] }}" is in all flavors.</strong></p>
+        {% elif result[0] == 'ingredient_none' %}
+            <p><strong>"{{ result[1] }}" is in none of the flavors.</strong></p>
+        {% endif %}
+    {% elif suggestions %}
+        <h2>Did you mean:</h2>
+        <ul>
+        {% for s in suggestions %}
+            <li>{{ s }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
+>>>>>>> 1b84c5b010f4ffa95d0a86377cddb76ee001c1b3

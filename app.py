@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+from flask import send_file
+>>>>>>> 1b84c5b010f4ffa95d0a86377cddb76ee001c1b3
 from flask import Flask, render_template, request
 import json
 import difflib
@@ -84,6 +88,7 @@ def index():
                 elif len(matched_ingredients) > 1:
                     suggestions = matched_ingredients
                 else:
+<<<<<<< HEAD
                     suggestions = difflib.get_close_matches(query, all_ingredient_variants, n=5, cutoff=0.5)
     return render_template('index.html', result=result, suggestions=suggestions, flavor_query=flavor_query, ingredient_query=ingredient_query)
 
@@ -108,10 +113,20 @@ def aliases_page():
         with open('data/ingredient_aliases.json', 'w') as f:
             json.dump(aliases, f, indent=2)
     return render_template('alias_editor.html', aliases=aliases)
+=======
+                    close_ingredients = difflib.get_close_matches(query, all_ingredient_variants, n=5, cutoff=0.5)
+                    suggestions = close_ingredients
+
+            return render_template('index.html', result=result, suggestions=suggestions,
+                                   flavor_query=flavor_query, ingredient_query=ingredient_query)
+
+    return render_template('index.html')
+>>>>>>> 1b84c5b010f4ffa95d0a86377cddb76ee001c1b3
 
 @app.route('/download-aliases')
 def download_aliases():
-    return app.send_static_file('data/ingredient_aliases.json')
+    return send_file("data/ingredient_aliases.json", as_attachment=True)
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
