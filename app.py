@@ -3,6 +3,8 @@ from flask import Flask, render_template, request, send_file
 import json
 import difflib
 import os
+import re
+from collections import defaultdict
 
 app = Flask(__name__)
 
@@ -22,6 +24,23 @@ def get_variant_map(ingredient_aliases):
         for v in variants:
             vmap[v.lower()] = normal
     return vmap
+
+def normalize_ingredient(text):
+    text = text.lower()
+    text = re.sub(r'\([^)]*\)', '', text)
+    text = re.sub(r'[^a-z\s]', '', text)
+    text = re.sub(r's$', '', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
+def build_token_index(ingredient_to_flavors):
+    norm_index = defaultdict(set)
+    for ingredient, flavors in ingredient_to_flavors.items():
+        norm = normalize_ingredient(ingredient)
+        norm_index[norm].update(flavors)
+    return norm_index
+
+token_index = build_token_index(ingredient_to_flavors)
 
 all_flavors = list(flavor_to_ingredients.keys())
 all_ingredients = list(ingredient_to_flavors.keys())
@@ -57,11 +76,13 @@ def index():
             ingredient_query = query
             query_lower = query.lower()
             normalized_query = variant_to_normal.get(query_lower)
+
             if not normalized_query:
                 for variant, normal in variant_to_normal.items():
                     if query_lower in variant:
                         normalized_query = normal
                         break
+
             if not normalized_query:
                 close_match = difflib.get_close_matches(query_lower, variant_to_normal.keys(), n=1, cutoff=0.6)
                 if close_match:
@@ -72,23 +93,23 @@ def index():
                 flavors = set()
                 for variant in all_variants:
                     flavors.update(ingredient_to_flavors.get(variant, []))
-                if len(flavors) == len(all_flavors):
-                    result = ("ingredient_all", normalized_query, sorted(flavors))
-                elif not flavors:
-                    result = ("ingredient_none", normalized_query, [])
-                else:
-                    result = ("ingredient", normalized_query, sorted(flavors))
-            elif query in ingredient_to_flavors:
-                flavors = ingredient_to_flavors[query]
-                result = ("ingredient", query, sorted(flavors))
+                result = ("ingredient", normalized_query, sorted(flavors))
             else:
-                matched_ingredients = [i for i in all_ingredients if query_lower in i.lower()]
-                if len(matched_ingredients) == 1:
-                    result = ("ingredient", matched_ingredients[0], ingredient_to_flavors[matched_ingredients[0]])
-                elif len(matched_ingredients) > 1:
-                    suggestions = matched_ingredients
+                norm_query = normalize_ingredient(query)
+                token_matches = {ing: list(flavors) for ing, flavors in token_index.items() if norm_query in ing}
+                if token_matches:
+                    flavors = set()
+                    for match_flavors in token_matches.values():
+                        flavors.update(match_flavors)
+                    result = ("ingredient", query, sorted(flavors))
                 else:
-                    suggestions = difflib.get_close_matches(query, all_ingredient_variants, n=5, cutoff=0.5)
+                    matched_ingredients = [i for i in all_ingredients if query_lower in i.lower()]
+                    if len(matched_ingredients) == 1:
+                        result = ("ingredient", matched_ingredients[0], ingredient_to_flavors[matched_ingredients[0]])
+                    elif len(matched_ingredients) > 1:
+                        suggestions = matched_ingredients
+                    else:
+                        suggestions = difflib.get_close_matches(query, all_ingredient_variants, n=5, cutoff=0.5)
 
     return render_template('index.html', result=result, suggestions=suggestions,
                            flavor_query=flavor_query, ingredient_query=ingredient_query)
