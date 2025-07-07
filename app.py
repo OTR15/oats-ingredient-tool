@@ -29,9 +29,9 @@ def normalize_word(word):
     word = word.lower()
     word = re.sub(r'[^a-z]', '', word)
     if word.endswith('ies'):
-        word = word[:-3] + 'y'  # strawberries → strawberry
+        word = word[:-3] + 'y'
     elif word.endswith('s') and not word.endswith('ss'):
-        word = word[:-1]  # bananas → banana
+        word = word[:-1]
     return word
 
 def extract_normalized_tokens(ingredient):
@@ -55,6 +55,7 @@ def index():
     suggestions = []
     flavor_query = None
     ingredient_query = None
+    missing_flavors = []
 
     ingredient_aliases = load_aliases()
     variant_to_normal = get_variant_map(ingredient_aliases)
@@ -95,35 +96,30 @@ def index():
                 if close_match:
                     normalized_query = variant_to_normal[close_match[0]]
 
+            matched_flavors = set()
+
             if normalized_query:
                 all_variants = ingredient_aliases.get(normalized_query, [])
-                matched_flavors = set()
                 for variant in all_variants:
                     matched_flavors.update(ingredient_to_flavors.get(variant, []))
-                if len(matched_flavors) == len(all_flavors):
-                    result = ("ingredient_all", normalized_query, sorted(matched_flavors))
-                elif not matched_flavors:
-                    result = ("ingredient_none", normalized_query, [])
-                else:
-                    result = ("ingredient", normalized_query, sorted(matched_flavors))
             else:
                 user_tokens = extract_normalized_tokens(query)
-                matched_flavors = set()
                 for token in user_tokens:
                     matched_flavors.update(token_index.get(token, []))
-                if matched_flavors:
-                    result = ("ingredient", query, sorted(matched_flavors))
-                else:
-                    matched_ingredients = [i for i in all_ingredients if query_lower in i.lower()]
-                    if len(matched_ingredients) == 1:
-                        result = ("ingredient", matched_ingredients[0], ingredient_to_flavors[matched_ingredients[0]])
-                    elif len(matched_ingredients) > 1:
-                        suggestions = matched_ingredients
-                    else:
-                        suggestions = difflib.get_close_matches(query, all_ingredient_variants, n=5, cutoff=0.5)
+
+            matched_flavors = sorted(matched_flavors)
+            missing_flavors = sorted(set(all_flavors) - set(matched_flavors))
+
+            if len(matched_flavors) == len(all_flavors):
+                result = ("ingredient_all", normalized_query or query, matched_flavors)
+            elif not matched_flavors:
+                result = ("ingredient_none", normalized_query or query, [])
+            else:
+                result = ("ingredient", normalized_query or query, matched_flavors)
 
     return render_template('index.html', result=result, suggestions=suggestions,
-                           flavor_query=flavor_query, ingredient_query=ingredient_query)
+                           flavor_query=flavor_query, ingredient_query=ingredient_query,
+                           missing_flavors=missing_flavors)
 
 @app.route('/aliases', methods=['GET', 'POST'])
 def aliases_page():
