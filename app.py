@@ -25,24 +25,26 @@ def get_variant_map(ingredient_aliases):
             vmap[v.lower()] = normal
     return vmap
 
-def normalize_ingredient(text):
-    text = text.lower()
-    text = re.sub(r'\([^)]*\)', '', text)  # remove parentheses
-    text = re.sub(r'[^a-z\s]', '', text)    # remove punctuation
-    text = re.sub(r'\bies\b', 'y', text)   # strawberries → strawberry
-    text = re.sub(r'\bs\b', '', text)      # plural s
-    text = re.sub(r'\s+', ' ', text).strip()
-    return text
+def normalize_word(word):
+    word = word.lower()
+    word = re.sub(r'[^a-z]', '', word)
+    if word.endswith('ies'):
+        word = word[:-3] + 'y'  # strawberries → strawberry
+    elif word.endswith('s') and not word.endswith('ss'):
+        word = word[:-1]  # bananas → banana
+    return word
 
-def extract_base_tokens(ingredient):
-    norm = normalize_ingredient(ingredient)
-    tokens = norm.split()
-    return tokens
+def extract_normalized_tokens(ingredient):
+    text = ingredient.lower()
+    text = re.sub(r'\([^)]*\)', '', text)
+    text = re.sub(r'[^a-z\s]', '', text)
+    tokens = text.split()
+    return [normalize_word(t) for t in tokens]
 
 def build_token_index(ingredient_to_flavors):
     token_index = defaultdict(set)
     for ingredient, flavors in ingredient_to_flavors.items():
-        tokens = extract_base_tokens(ingredient)
+        tokens = extract_normalized_tokens(ingredient)
         for token in tokens:
             token_index[token].update(flavors)
     return token_index
@@ -105,9 +107,9 @@ def index():
                 else:
                     result = ("ingredient", normalized_query, sorted(matched_flavors))
             else:
-                tokens = extract_base_tokens(query)
+                user_tokens = extract_normalized_tokens(query)
                 matched_flavors = set()
-                for token in tokens:
+                for token in user_tokens:
                     matched_flavors.update(token_index.get(token, []))
                 if matched_flavors:
                     result = ("ingredient", query, sorted(matched_flavors))
