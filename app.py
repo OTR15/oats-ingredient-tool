@@ -27,9 +27,10 @@ def get_variant_map(ingredient_aliases):
 
 def normalize_ingredient(text):
     text = text.lower()
-    text = re.sub(r'\([^)]*\)', '', text)
-    text = re.sub(r'[^a-z\s]', '', text)
-    text = re.sub(r's$', '', text)
+    text = re.sub(r'\([^)]*\)', '', text)  # remove text inside parentheses
+    text = re.sub(r'[^a-z\s]', '', text)    # remove punctuation
+    text = re.sub(r'(ies)$', 'y', text)      # strawberries → strawberry
+    text = re.sub(r'(s)$', '', text)         # bananas → banana
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
