@@ -90,10 +90,17 @@ def index():
 
             if normalized_query:
                 all_variants = ingredient_aliases.get(normalized_query, [])
-                flavors = set()
+                matched_flavors = set()
                 for variant in all_variants:
-                    flavors.update(ingredient_to_flavors.get(variant, []))
-                result = ("ingredient", normalized_query, sorted(flavors))
+                    matched_flavors.update(ingredient_to_flavors.get(variant, []))
+
+                if len(matched_flavors) == len(all_flavors):
+                    result = ("ingredient_all", normalized_query, sorted(matched_flavors))
+                elif not matched_flavors:
+                    result = ("ingredient_none", normalized_query, [])
+                else:
+                    result = ("ingredient", normalized_query, sorted(matched_flavors))
+
             else:
                 norm_query = normalize_ingredient(query)
                 token_matches = {ing: list(flavors) for ing, flavors in token_index.items() if norm_query in ing}
