@@ -41,7 +41,6 @@ def build_token_index(ingredient_to_flavors):
     return norm_index
 
 token_index = build_token_index(ingredient_to_flavors)
-
 all_flavors = list(flavor_to_ingredients.keys())
 all_ingredients = list(ingredient_to_flavors.keys())
 
