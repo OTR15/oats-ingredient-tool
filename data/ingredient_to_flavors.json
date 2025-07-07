@@ -45,6 +45,7 @@
     "Strawberry Rhubarb",
     "S\u2019mores",
     "Tiramasu",
+    "Vanilla",
     "White Chocolate Raspberry"
   ],
   "FAVA BEAN PROTEIN ISOLATE": [
@@ -110,6 +111,7 @@
     "Strawberry Rhubarb",
     "S\u2019mores",
     "Tiramasu",
+    "Vanilla",
     "White Chocolate Raspberry"
   ],
   "POWDERED BANANAS": [
@@ -169,6 +171,7 @@
     "Strawberry Rhubarb",
     "S\u2019mores",
     "Tiramasu",
+    "Vanilla",
     "White Chocolate Raspberry"
   ],
   "FLAXSEED": [
@@ -217,6 +220,7 @@
     "Strawberry Rhubarb",
     "S\u2019mores",
     "Tiramasu",
+    "Vanilla",
     "White Chocolate Raspberry"
   ],
   "HEMP SEEDS": [
@@ -265,6 +269,7 @@
     "Strawberry Rhubarb",
     "S\u2019mores",
     "Tiramasu",
+    "Vanilla",
     "White Chocolate Raspberry"
   ],
   "MOLASSES POWDER": [
@@ -316,6 +321,7 @@
     "Strawberry Rhubarb",
     "S\u2019mores",
     "Tiramasu",
+    "Vanilla",
     "White Chocolate Raspberry"
   ],
   "MONK FRUIT": [
@@ -364,6 +370,7 @@
     "Strawberry Rhubarb",
     "S\u2019mores",
     "Tiramasu",
+    "Vanilla",
     "White Chocolate Raspberry"
   ],
   "PROTEIN BLEND (WHEY PROTEIN CONCENTRATE": [
@@ -450,6 +457,7 @@
     "Strawberries Cream",
     "Strawberry Rhubarb",
     "Tiramasu",
+    "Vanilla",
     "White Chocolate Raspberry"
   ],
   "CARAMELIZED SUGAR": [
@@ -619,7 +627,8 @@
   "SWEET CREAM POWDER": [
     "Chocolate Satin Pie",
     "Mixed Berries Cream",
-    "Tiramasu"
+    "Tiramasu",
+    "Vanilla"
   ],
   "GROUND CINNAMON": [
     "Cinnamon Roll"
@@ -793,6 +802,12 @@
   ],
   "NATURAL FLAVORING]": [
     "S\u2019mores"
+  ],
+  "PROTEIN BLEND (WHEY PROTEIN CONCENTRATE, MILK PROTEIN CONCENTRATE)": [
+    "Vanilla"
+  ],
+  "VANILLA (POWDER, SPECKS)": [
+    "Vanilla"
   ],
   "RASPBERRY (PIECES": [
     "White Chocolate Raspberry"
