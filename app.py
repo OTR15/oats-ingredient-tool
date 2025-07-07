@@ -27,23 +27,25 @@ def get_variant_map(ingredient_aliases):
 
 def normalize_ingredient(text):
     text = text.lower()
-    text = re.sub(r'\([^)]*\)', '', text)  # remove text inside parentheses
+    text = re.sub(r'\([^)]*\)', '', text)  # remove parentheses
     text = re.sub(r'[^a-z\s]', '', text)    # remove punctuation
-    text = re.sub(r'(ies)$', 'y', text)      # strawberries → strawberry
-    text = re.sub(r'(s)$', '', text)         # bananas → banana
+    text = re.sub(r'\bies\b', 'y', text)   # strawberries → strawberry
+    text = re.sub(r'\bs\b', '', text)      # plural s
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
-def build_token_index(ingredient_to_flavors):
-    norm_index = defaultdict(set)
-    for ingredient, flavors in ingredient_to_flavors.items():
-        norm = normalize_ingredient(ingredient)
-        norm_index[norm].update(flavors)
-    return norm_index
+def extract_base_tokens(ingredient):
+    norm = normalize_ingredient(ingredient)
+    tokens = norm.split()
+    return tokens
 
-token_index = build_token_index(ingredient_to_flavors)
-all_flavors = list(flavor_to_ingredients.keys())
-all_ingredients = list(ingredient_to_flavors.keys())
+def build_token_index(ingredient_to_flavors):
+    token_index = defaultdict(set)
+    for ingredient, flavors in ingredient_to_flavors.items():
+        tokens = extract_base_tokens(ingredient)
+        for token in tokens:
+            token_index[token].update(flavors)
+    return token_index
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -52,11 +54,14 @@ def index():
     flavor_query = None
     ingredient_query = None
 
-    if request.method == 'POST':
-        ingredient_aliases = load_aliases()
-        variant_to_normal = get_variant_map(ingredient_aliases)
-        all_ingredient_variants = list(variant_to_normal.keys()) + [i.lower() for i in all_ingredients]
+    ingredient_aliases = load_aliases()
+    variant_to_normal = get_variant_map(ingredient_aliases)
+    token_index = build_token_index(ingredient_to_flavors)
+    all_flavors = list(flavor_to_ingredients.keys())
+    all_ingredients = list(ingredient_to_flavors.keys())
+    all_ingredient_variants = list(variant_to_normal.keys()) + [i.lower() for i in all_ingredients]
 
+    if request.method == 'POST':
         if 'flavor_submit' in request.form:
             query = request.form['flavor_query'].strip()
             flavor_query = query
@@ -93,22 +98,19 @@ def index():
                 matched_flavors = set()
                 for variant in all_variants:
                     matched_flavors.update(ingredient_to_flavors.get(variant, []))
-
                 if len(matched_flavors) == len(all_flavors):
                     result = ("ingredient_all", normalized_query, sorted(matched_flavors))
                 elif not matched_flavors:
                     result = ("ingredient_none", normalized_query, [])
                 else:
                     result = ("ingredient", normalized_query, sorted(matched_flavors))
-
             else:
-                norm_query = normalize_ingredient(query)
-                token_matches = {ing: list(flavors) for ing, flavors in token_index.items() if norm_query in ing}
-                if token_matches:
-                    flavors = set()
-                    for match_flavors in token_matches.values():
-                        flavors.update(match_flavors)
-                    result = ("ingredient", query, sorted(flavors))
+                tokens = extract_base_tokens(query)
+                matched_flavors = set()
+                for token in tokens:
+                    matched_flavors.update(token_index.get(token, []))
+                if matched_flavors:
+                    result = ("ingredient", query, sorted(matched_flavors))
                 else:
                     matched_ingredients = [i for i in all_ingredients if query_lower in i.lower()]
                     if len(matched_ingredients) == 1:
